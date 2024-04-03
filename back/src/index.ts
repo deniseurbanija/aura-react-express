@@ -1,11 +1,6 @@
-const express = require("express");
-const dotenv = require("dotenv")
+import server from "./server";
+import { PORT } from "./config/envs";
 
-dotenv.config()
-const PORT = process.env.PORT || 8000
-
-const app = express()
-
-app.listen(PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
+server.listen(PORT, () => {
+    console.log(`Server running od port ${PORT}`);
 })
