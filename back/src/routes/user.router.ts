@@ -3,10 +3,10 @@ import { getUsers, getUserById, addUser, login } from "../controllers/user.contr
 
 const userRouter = Router()
 
-userRouter.get("/users", getUsers)
-userRouter.get("/users/:id", getUserById)
-userRouter.post("/users/register", addUser)
-userRouter.post("/users/login", login)
+userRouter.get("/", getUsers)
+userRouter.get("/:id", getUserById)
+userRouter.post("/register", addUser)
+userRouter.post("/login", login)
 
 
 export default userRouter

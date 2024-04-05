@@ -1,11 +1,13 @@
 import  express  from "express";
-import userRouter from "./routes/user.router";
-import appointmentRouter from "./routes/appointment.router";
+import indexRouter from "./routes/index.router";
+import morgan from "morgan";
 
 const server = express()
 server.use(express.json())
+server.use(morgan("dev"))
 
-server.use(userRouter)
-server.use(appointmentRouter)
+
+server.use(indexRouter)
+
 
 export default server

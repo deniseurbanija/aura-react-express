@@ -3,10 +3,10 @@ import { addAppointment, cancelAppointment, getAppointment, getAppointments } fr
 
 const appointmentRouter = Router()
 
-appointmentRouter.get("/appointments", getAppointments)
-appointmentRouter.get("/appointment", getAppointment)
-appointmentRouter.post("/appointment/schedule", addAppointment)
-appointmentRouter.put("/appointment/cancel", cancelAppointment)
+appointmentRouter.get("/", getAppointments)
+appointmentRouter.get("/:id", getAppointment)
+appointmentRouter.post("/schedule", addAppointment)
+appointmentRouter.put("/cancel", cancelAppointment)
 
 
 export default appointmentRouter
