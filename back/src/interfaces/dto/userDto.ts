@@ -5,6 +5,6 @@ export interface userDto {
   password: string;
   name: string;
   email: string;
-  birthdate: IDate;
+  birthdate: string;
   nDni: number;
 }

@@ -1,13 +1,7 @@
-import { IDate, ITime } from "../IDate";
-
-enum statusOption {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-}
-
 export interface appointmentDto {
-  date: IDate; //??
-  time: ITime; //??
+  motive: string,
+  date: string; 
+  time: string; 
   userId: number;
-  status: statusOption;
+  status: string;
 }

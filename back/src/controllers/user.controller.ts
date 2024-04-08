@@ -5,7 +5,7 @@ import {
   getUsersService,
 } from "../services/user.service";
 import catchAsync from "../utils/catchAsync";
-import { checkCredentialService } from "../services/credential.service";
+import { validateCredentialService } from "../services/credential.service";
 
 export const getUsers = async (req: Request, res: Response) => {
   const users = await getUsersService();
@@ -26,6 +26,6 @@ export const addUser = catchAsync(async (req: Request, res: Response) => {
 
 export const login = catchAsync(async (req: Request, res: Response) => {
   const { username, password } = req.body;
-  const credentialId = await checkCredentialService(username, password);
+  const credentialId = await validateCredentialService(username, password);
   res.status(200).send({ credentialId });
 });

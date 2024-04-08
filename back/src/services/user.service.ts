@@ -12,7 +12,7 @@ export const getUsersService = async () => {
 };
 
 export const getUserByIdService = async (id: number) => {
-  const user = await AppDataSource.getRepository(User).findOneBy(id);
+  const user = await AppDataSource.getRepository(User).findOneBy({ id: id });
   if (user) {
     return user;
   } else {
@@ -25,13 +25,13 @@ export const addUserService = async (userData: userDto) => {
   const { username, password, name, email, birthdate, nDni } = userData;
   const credentialId: number = await addCredentialService(username, password);
   const newUser = AppDataSource.getRepository(User).create({
-    id: userId,
+    id: userId++,
     name,
     email,
     birthdate,
     nDni,
     credentialId,
   });
-  const result = await AppDataSource.getRepository(User).save(newUser);
-  return result;
+  await AppDataSource.getRepository(User).save(newUser);
+  return newUser;
 };

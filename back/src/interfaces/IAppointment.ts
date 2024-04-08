@@ -1,14 +1,8 @@
-import { IDate, ITime } from "./IDate";
-
-export enum statusOption {
-    ACTIVE = "active",
-    CANCELLED = "cancelled"
-}
-
-export interface IAppointment{
-    id: number, 
-    date: IDate, //??
-    time: ITime, //??
-    userId: number,
-    status: statusOption
+export interface IAppointment {
+  id: number;
+  motive: string,
+  date: string; //??
+  time: string; //??
+  userId: number;
+  status: string;
 }

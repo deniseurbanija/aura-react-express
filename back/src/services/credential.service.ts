@@ -1,3 +1,5 @@
+import { AppDataSource } from "../config/data.source";
+import { Credential } from "../entities/Credential";
 import { ICredential } from "../interfaces/ICredential";
 
 const credentials: ICredential[] = [];
@@ -7,25 +9,27 @@ export const addCredentialService = async (
   username: string,
   password: string
 ) => {
-  const newCredential: ICredential = {
-    id: credentialId,
+  const newCredential = AppDataSource.getRepository(Credential).create({
+    id: credentialId++,
     username: username,
     password: password,
-  };
-  credentialId++;
-  credentials.push(newCredential);
+  });
   return newCredential.id;
 };
 
-export const checkCredentialService = async (
+export const validateCredentialService = async (
   username: string,
   password: string
 ) => {
-  for (const credential of credentials) {
-    if (username == credential.username) {
-      if (password == credential.password) {
-        return credential.id;
-      }
-    }
+  const foundCredential = await AppDataSource.getRepository(
+    Credential
+  ).findOneBy({ username: username });
+  if (!foundCredential) {
+    throw new Error("Credential not found");
+  }
+  if (password == foundCredential.password) {
+    return foundCredential.id;
+  } else {
+    throw new Error("Incorrect password");
   }
 };
