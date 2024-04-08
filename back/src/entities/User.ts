@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { AppDataSource } from "../config/data.source";
 
 @Entity({
   name: "users",
