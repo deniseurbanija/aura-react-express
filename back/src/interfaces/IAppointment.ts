@@ -1,6 +1,6 @@
 import { IDate, ITime } from "./IDate";
 
-enum statusOption {
+export enum statusOption {
     ACTIVE = "active",
     CANCELLED = "cancelled"
 }

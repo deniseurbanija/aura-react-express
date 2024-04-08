@@ -1,17 +1,31 @@
 import { Request, Response } from "express";
+import {
+  addUserService,
+  getUserByIdService,
+  getUsersService,
+} from "../services/user.service";
+import catchAsync from "../utils/catchAsync";
+import { checkCredentialService } from "../services/credential.service";
 
-export const getUsers = async (req: Request, res: Response) =>{
-    res.send("Obtener el listado de todos los usuarios")
-}
+export const getUsers = async (req: Request, res: Response) => {
+  const users = await getUsersService();
+  res.status(200).send(users);
+};
 
-export const getUserById = async (req: Request, res: Response) =>{
-    res.send("Obtener el detalle de un usuario específico")
-}
+export const getUserById = catchAsync(async (req: Request, res: Response) => {
+  const userId = parseInt(req.params.id);
+  const user = await getUserByIdService(userId);
+  res.status(200).send(user);
+});
 
-export const addUser = async (req: Request, res: Response) =>{
-    res.send("Registro de un nuevo usuario")
-}
+export const addUser = catchAsync(async (req: Request, res: Response) => {
+  const userData = req.body;
+  const newUser = await addUserService(userData);
+  res.status(201).send(newUser);
+});
 
-export const login = async (req: Request, res: Response) => {
-    res.send("Login del usuario a la aplicación")
-}
+export const login = catchAsync(async (req: Request, res: Response) => {
+  const { username, password } = req.body;
+  const credentialId = await checkCredentialService(username, password);
+  res.status(200).send({ credentialId });
+});
