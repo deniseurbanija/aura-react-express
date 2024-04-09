@@ -15,7 +15,6 @@ export const getAppointmentByIdService = async (id: number) => {
   return appointment;
 };
 
-let appointmentId: number = 1;
 export const addAppointmentService = async (
   appointmentData: appointmentDto
 ) => {
@@ -24,24 +23,23 @@ export const addAppointmentService = async (
     throw new Error("Can´t add an appointment without user ID");
   }
   const newAppointment = await AppDataSource.getRepository(Appointment).create({
-    id: appointmentId++,
     motive,
     date,
     time,
     status,
   });
-  const user = await AppDataSource.getRepository(User).findOneBy({
+  const foundUser = await AppDataSource.getRepository(User).findOneBy({
     id: userId,
   });
 
-  if (!user) {
+  if (!foundUser) {
     throw Error("User not found");
   }
 
-  if (!user.appointment) {
-    user.appointment = [];
+  if (!foundUser.appointment) {
+    foundUser.appointment = [];
   }
-  user.appointment.push(newAppointment);
+
   await AppDataSource.getRepository(Appointment).save(newAppointment);
   return newAppointment;
 };

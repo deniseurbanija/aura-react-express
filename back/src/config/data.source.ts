@@ -12,7 +12,6 @@ export const AppDataSource = new DataSource({
   password: DB_PASSWORD,
   database: "turnero",
   synchronize: true,
-  dropSchema: true,
   logging: false,
   entities: [User, Appointment, Credential],
   subscribers: [],

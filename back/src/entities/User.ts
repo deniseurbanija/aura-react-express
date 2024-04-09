@@ -16,8 +16,8 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // @Column()
-  // name: string;
+  @Column()
+  name: string;
 
   @Column()
   email: string;
@@ -33,5 +33,6 @@ export class User {
   credential: Credential;
 
   @OneToMany(() => Appointment, (appointment) => appointment.user)
+  @JoinColumn({ name: "appointments" })
   appointment: Appointment[];
 }

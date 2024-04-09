@@ -5,7 +5,9 @@ import { userDto } from "../interfaces/dto/userDto";
 import { createCredential } from "./credential.service";
 
 export const getUsersService = async () => {
-  const users: User[] = await AppDataSource.getRepository(User).find();
+  const users: User[] = await AppDataSource.getRepository(User).find({
+    relations: { appointment: true},
+  });
   return users;
 };
 
@@ -19,7 +21,6 @@ export const getUserByIdService = async (id: number) => {
   return user;
 };
 
-export let userId: number = 1;
 export const addUserService = async (userData: userDto): Promise<User> => {
   const newCredential: Credential = await createCredential(
     userData.username,
@@ -29,7 +30,6 @@ export const addUserService = async (userData: userDto): Promise<User> => {
   //es lo mismo que AppDataSource.create(createUserDTO);
 
   const newUser = {
-    id: userId++,
     name: userData.name,
     email: userData.email,
     birthdate: userData.birthdate,
@@ -37,13 +37,6 @@ export const addUserService = async (userData: userDto): Promise<User> => {
   };
   const userCreated = AppDataSource.getRepository(User).create(newUser);
 
-  // const newUser: User = new User();
-  //   (newUser.name = createUserDTO.name),
-  //   (newUser.email = createUserDTO.email),
-  //   (newUser.birthdate = createUserDTO.birthdate),
-  //   (newUser.nDni = createUserDTO.nDni),
-  //   newUser.credential = newCredential
-  //   AppDataSource.manager.save(newUser);
   userCreated.credential = newCredential;
   AppDataSource.getRepository(User).save(userCreated);
   return userCreated;
