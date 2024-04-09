@@ -1,10 +1,7 @@
-import { IAppointment } from "../interfaces/IAppointment";
 import { appointmentDto } from "../interfaces/dto/appointmentDto";
 import { AppDataSource } from "../config/data.source";
 import { Appointment } from "../entities/Appointment";
 import { User } from "../entities/User";
-
-const appointments: IAppointment[] = [];
 
 export const getAppointmentsService = async () => {
   const appointments = await AppDataSource.getRepository(Appointment).find();
@@ -31,14 +28,18 @@ export const addAppointmentService = async (
     motive,
     date,
     time,
-    userId,
     status,
   });
   const user = await AppDataSource.getRepository(User).findOneBy({
     id: userId,
   });
+
   if (!user) {
     throw Error("User not found");
+  }
+
+  if (!user.appointment) {
+    user.appointment = [];
   }
   user.appointment.push(newAppointment);
   await AppDataSource.getRepository(Appointment).save(newAppointment);
@@ -46,7 +47,7 @@ export const addAppointmentService = async (
 };
 
 export const cancelAppointmentService = async (id: number) => {
-  const foundAppointment: IAppointment | null =
+  const foundAppointment: Appointment | null =
     await AppDataSource.getRepository(Appointment).findOneBy({
       id: id,
     });

@@ -24,12 +24,9 @@ export class Appointment {
   time: string;
 
   @Column()
-  userId: number;
-
-  @Column()
   status: string;
 
   @ManyToOne(() => User, (user) => user.appointment)
-  @JoinColumn()
+  @JoinColumn({ name: "userId" })
   user: User;
 }

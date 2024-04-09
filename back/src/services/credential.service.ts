@@ -1,20 +1,17 @@
 import { AppDataSource } from "../config/data.source";
 import { Credential } from "../entities/Credential";
-import { ICredential } from "../interfaces/ICredential";
-
-const credentials: ICredential[] = [];
 
 let credentialId: number = 1;
-export const addCredentialService = async (
+export const createCredential = async (
   username: string,
   password: string
-) => {
-  const newCredential = AppDataSource.getRepository(Credential).create({
-    id: credentialId++,
-    username: username,
-    password: password,
-  });
-  return newCredential.id;
+): Promise<Credential> => {
+  const newCredential: Credential = new Credential();
+  newCredential.id = credentialId++;
+  newCredential.password = password;
+  newCredential.username = username;
+  AppDataSource.manager.save(newCredential);
+  return newCredential;
 };
 
 export const validateCredentialService = async (

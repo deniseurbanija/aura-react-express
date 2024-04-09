@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
   port: 5432,
   username: DB_USERNAME,
   password: DB_PASSWORD,
-  database: "postgres",
+  database: "turnero",
   synchronize: true,
   dropSchema: true,
   logging: false,
