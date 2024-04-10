@@ -4,29 +4,44 @@ import {
   getUserByIdService,
   getUsersService,
 } from "../services/user.service";
-import catchAsync from "../utils/catchAsync";
 import { validateCredentialService } from "../services/credential.service";
 
 export const getUsers = async (req: Request, res: Response) => {
-  const users = await getUsersService();
-  res.status(200).send(users);
+  try {
+    const users = await getUsersService();
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(404).send("users not found");
+  }
 };
 
-export const getUserById = catchAsync(async (req: Request, res: Response) => {
-  const userId = parseInt(req.params.id);
-  const user = await getUserByIdService(userId);
-  res.status(200).send(user);
-});
+export const getUserById = async (req: Request, res: Response) => {
+  try {
+    const userId = parseInt(req.params.id);
+    const user = await getUserByIdService(userId);
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(404).send("user not found");
+  }
+};
 
-export const addUser = catchAsync(async (req: Request, res: Response) => {
-  const userData = req.body;
-  const newUser = await addUserService(userData);
-  res.status(201).send(newUser);
-});
+export const addUser = async (req: Request, res: Response) => {
+  try {
+    const userData = req.body;
+    const newUser = await addUserService(userData);
+    res.status(201).send(newUser);
+  } catch (error) {
+    res.status(400).send("incorrect data");
+  }
+};
 
-export const login = catchAsync(async (req: Request, res: Response) => {
-  const { username, password } = req.body;
-  const credentialId = await validateCredentialService(username, password);
-  const foundUser = await getUserByIdService(credentialId);
-  res.status(200).send({ login: true, foundUser });
-});
+export const login = async (req: Request, res: Response) => {
+  try {
+    const { username, password } = req.body;
+    const credentialId = await validateCredentialService(username, password);
+    const foundUser = await getUserByIdService(credentialId);
+    res.status(200).send({ login: true, foundUser });
+  } catch (error) {
+    res.status(400).send("incorrect data");
+  }
+};

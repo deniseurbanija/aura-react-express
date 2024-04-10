@@ -3,16 +3,17 @@ import { Credential } from "../entities/Credential";
 import { User } from "../entities/User";
 import { userDto } from "../interfaces/dto/userDto";
 import { createCredential } from "./credential.service";
+import { UserModel } from "../config/data.source";
 
 export const getUsersService = async () => {
-  const users: User[] = await AppDataSource.getRepository(User).find({
-    relations: { appointment: true},
+  const users: User[] = await UserModel.find({
+    relations: { appointments: true },
   });
   return users;
 };
 
 export const getUserByIdService = async (id: number) => {
-  const user: User | null = await AppDataSource.getRepository(User).findOneBy({
+  const user: User | null = await UserModel.findOneBy({
     id: id,
   });
   if (!user) {
@@ -35,9 +36,9 @@ export const addUserService = async (userData: userDto): Promise<User> => {
     birthdate: userData.birthdate,
     nDni: userData.nDni,
   };
-  const userCreated = AppDataSource.getRepository(User).create(newUser);
+  const userCreated = UserModel.create(newUser);
 
   userCreated.credential = newCredential;
-  AppDataSource.getRepository(User).save(userCreated);
+  UserModel.save(userCreated);
   return userCreated;
 };
