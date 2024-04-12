@@ -10,7 +10,7 @@ const MyAppointments = () => {
   const [modal, setModal] = useState(false);
   const [appId, setAppId] = useState(0);
 
-  const handleCancelation = (id) => {
+  const handleOnClick = (id) => {
     setAppId(id);
     setModal(true);
   };
@@ -31,10 +31,16 @@ const MyAppointments = () => {
         <Card
           appointment={appointment}
           key={appointment.id}
-          handleCancelation={handleCancelation}
+          handleOnClick={handleOnClick}
         />
       ))}
-      {modal && <CancelationModal handleOnClose={handleOnClose} />}
+      {modal && (
+        <CancelationModal
+          handleOnClose={handleOnClose}
+          id={appId}
+          setAppointments={setAppointments}
+        />
+      )}
     </div>
   );
 };

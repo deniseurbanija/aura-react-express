@@ -1,0 +1,6 @@
+.form_container {
+  padding: 9rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
