@@ -1,6 +1,6 @@
-import styles from "../styles/NavBar.module.css";
+import styles from "../styles/NavBar.module.css"
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.title}>
@@ -17,3 +17,5 @@ export const NavBar = () => {
     </div>
   );
 };
+
+export default NavBar

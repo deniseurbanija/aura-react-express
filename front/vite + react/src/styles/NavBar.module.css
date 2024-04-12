@@ -2,8 +2,9 @@
   margin: 0;
   display: flex;
   width: 100%;
-  border: 1px solid rgba(227, 227, 227, 0.625);
+  border: 1px solid rgba(201, 201, 201, 0.582);
   align-items: center;
+  background-color: #fff;
 }
 
 .title {
@@ -21,13 +22,14 @@
   list-style: none;
   justify-content: space-between;
   color: gray;
-  font-weight: 600;
+  font-weight: 500;
   align-items: center;
 }
 
 li:hover {
   transition: 0.5s;
   cursor: pointer;
+  color: rgb(72, 72, 72);
 }
 
 .yellow_btn {

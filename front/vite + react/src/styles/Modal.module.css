@@ -1,0 +1,61 @@
+/* Estilo para el fondo oscuro del modal */
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  z-index: 1000; /* Asegura que el fondo esté por encima de otros elementos */
+}
+
+/* Estilo para el modal */
+.modal {
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Centra exactamente */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  z-index: 1001; /* Asegura que el modal esté por encima del fondo */
+  padding: 20px; /* Espacio interno */
+  max-width: 400px; /* Ancho máximo */
+  width: 90%; /* Ancho relativo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para resaltar el modal */
+.modal:focus {
+  outline: none; /* Elimina el contorno predeterminado */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada al enfocar */
+}
+
+.advice {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+}
+
+.yellow_btn {
+  color: black;
+  background-color: #ffff00;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 0;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.btnActive {
+  background-color: none;
+  font-size: large;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 1rem;
+  color: gray;
+}

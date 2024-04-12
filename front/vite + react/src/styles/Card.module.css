@@ -1,0 +1,64 @@
+.card_container {
+  justify-content: center;
+  padding: 1rem;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: 1px solid rgba(201, 201, 201, 0.582);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.motive {
+  width: 30%;
+  text-align: start;
+  margin-left: 2rem;
+  font-weight: 400;
+  font-size: large;
+}
+
+.date {
+  width: 15%;
+  color: gray;
+}
+
+.active {
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #86ba90;
+}
+
+.cancelled {
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #f87171;
+}
+
+.btnActive {
+  background-color: none;
+  font-size: large;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 1rem;
+  color: gray;
+}
+
+.btnDisable {
+  background-color: none;
+  font-size: large;
+  background: none;
+  border: 0;
+  margin: 1rem;
+  color: rgba(152, 152, 152, 0.461);
+}
