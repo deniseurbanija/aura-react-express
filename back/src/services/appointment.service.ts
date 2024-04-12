@@ -40,16 +40,12 @@ export const addAppointmentService = async (
 
   return newAppointment;
 };
-
 export const cancelAppointmentService = async (id: number) => {
-  const foundAppointment: Appointment | null = await AppointmentModel.findOneBy(
-    {
-      id: id,
-    }
-  );
+  const foundAppointment = await AppointmentModel.findOneBy({ id });
   if (!foundAppointment) {
-    throw Error("Appointment not found");
+    throw new Error("Appointment not found");
   }
   foundAppointment.status = "cancelled";
   await AppointmentModel.save(foundAppointment);
+  return foundAppointment; // Devuelve el turno cancelado
 };
