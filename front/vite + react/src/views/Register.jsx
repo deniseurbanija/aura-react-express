@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/Register.module.css";
+import validate from "../utils/validate";
 
 const Register = () => {
   const [registerForm, setRegisterForm] = useState({
@@ -10,6 +11,10 @@ const Register = () => {
     username: "",
     password: "",
   });
+  const [errors, setErrors] = useState({
+    name: "name is required",
+    password: "password is required",
+  });
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -18,6 +23,8 @@ const Register = () => {
       ...registerForm,
       [name]: value,
     });
+
+    setErrors(validate(registerForm));
   };
 
   const handleSubmit = (event) => {
@@ -34,6 +41,7 @@ const Register = () => {
         value={registerForm.name}
         onChange={handleOnChange}
       ></input>
+      {errors.name && <p>{errors.name}</p>}
 
       <label>DNI</label>
       <input
