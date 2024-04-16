@@ -5,7 +5,7 @@ const CancelationModal = ({ id, handleOnClose }) => {
   const cancelAppointment = async (id) => {
     try {
       await axios.put(`http://localhost:3000/appointments/cancel/${id}`);
-      alert("You have cancelled this appointment");
+      alert("You have canceled this appointment");
       handleOnClose();
     } catch (error) {
       console.error("Error al cancelar el turno:", error);

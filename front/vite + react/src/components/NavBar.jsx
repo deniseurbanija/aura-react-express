@@ -1,4 +1,5 @@
-import styles from "../styles/NavBar.module.css"
+import styles from "../styles/NavBar.module.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -8,14 +9,14 @@ const NavBar = () => {
       </div>
       <div className={styles.ul_div}>
         <ul className={styles.ul}>
-          <li>Home</li>
-          <li>Contact</li>
-          <li>About</li>
-          <li className={styles.yellow_btn}>My Appointments</li>
+          <Link to="/home">Home</Link>
+          <Link to="contact">Contact</Link>
+          <Link>About</Link>
+          <Link to="/appointments">My Appointments</Link>
         </ul>
       </div>
     </div>
   );
 };
 
-export default NavBar
+export default NavBar;
