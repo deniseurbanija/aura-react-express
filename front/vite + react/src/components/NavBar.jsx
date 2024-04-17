@@ -9,10 +9,16 @@ const NavBar = () => {
       </div>
       <div className={styles.ul_div}>
         <ul className={styles.ul}>
-          <Link to="/home">Home</Link>
-          <Link to="contact">Contact</Link>
-          <Link>About</Link>
-          <Link to="/appointments">My Appointments</Link>
+          <Link to="/home" className={styles.li}>
+            Home
+          </Link>
+          <Link to="contact" className={styles.li}>
+            Contact
+          </Link>
+          <Link className={styles.li}>About</Link>
+          <Link to="/appointments" className={styles.li}>
+            My Appointments
+          </Link>
         </ul>
       </div>
     </div>

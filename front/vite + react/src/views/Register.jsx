@@ -44,60 +44,28 @@ const Register = () => {
 
   return (
     <form className={styles.form_container} onSubmit={handleSubmit}>
-      <label>Name</label>
-      <input
-        name="name"
-        type="text"
-        value={registerForm.name}
-        onChange={handleOnChange}
-      ></input>
-      {errors.name && <p>{errors.name}</p>}
-
-      <label>DNI</label>
-      <input
-        name="nDni"
-        type="text"
-        value={registerForm.nDni}
-        onChange={handleOnChange}
-      ></input>
-      {errors.nDni && <p>{errors.nDni}</p>}
-
-      <label>Birthdate</label>
-      <input
-        name="birthdate"
-        type="date"
-        value={registerForm.birthdate}
-        onChange={handleOnChange}
-      ></input>
-      {errors.birthdate && <p>{errors.birthdate}</p>}
-
-      <label>Username</label>
-      <input
-        name="username"
-        type="text"
-        value={registerForm.username}
-        onChange={handleOnChange}
-      ></input>
-      {errors.username && <p>{errors.username}</p>}
-
-      <label>Email</label>
-      <input
-        name="email"
-        type="text"
-        value={registerForm.email}
-        onChange={handleOnChange}
-      ></input>
-      {errors.email && <p>{errors.email}</p>}
-
-      <label>Password</label>
-      <input
-        name="password"
-        type="password"
-        value={registerForm.password}
-        onChange={handleOnChange}
-      ></input>
-      {errors.password && <p>{errors.password}</p>}
-
+      <h2>Register</h2>
+      {[
+        { label: "Name", name: "name", type: "text" },
+        { label: "DNI", name: "nDni", type: "text" },
+        { label: "Birthdate", name: "birthdate", type: "date" },
+        { label: "Email", name: "email", type: "text" },
+        { label: "Username", name: "username", type: "text" },
+        { label: "Password", name: "password", type: "password" },
+      ].map(({ label, name, type }) => {
+        return (
+          <div key={name} className={styles.registerForm}>
+            <label>{label}</label>
+            <input
+              type={type}
+              name={name}
+              onChange={handleOnChange}
+              value={registerForm[name]}
+            />
+            {errors[name] && <span key={name}>{errors[name]}</span>}
+          </div>
+        );
+      })}
       <button>Submit</button>
     </form>
   );

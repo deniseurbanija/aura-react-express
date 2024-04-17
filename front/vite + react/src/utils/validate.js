@@ -8,8 +8,11 @@ const validate = (input) => {
     /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
   //validate name and username
-  if (input.username.length < 4 && input.name.length < 4) {
+  if (input.username.length < 2 ) {
     errors.username = "input too short";
+  }
+  if ( input.name.length < 2 ) {
+    errors.name = "input too short";
   }
 
   //validate password
@@ -24,12 +27,12 @@ const validate = (input) => {
 
   //validate birthdate
   if (!dateRedex.test(input.birthdate)) {
-    errors.birthdate = "Format dd/mm/aaaa";
+    errors.birthdate = "Birthdate is required";
   }
 
   //validate dni
   if (!numberRegex.test(input.nDni)) {
-    errors.nDni = "invalid input, it should only contain numbers";
+    errors.nDni = "invalid input";
   }
 
   return errors;

@@ -1,6 +1,44 @@
 .form_container {
-  padding: 9rem;
+  padding: 4rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.registerForm {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+.loginForm {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+input {
+  width: 17rem;
+  border-radius: 1rem;
+  border: 1px solid gray;
+  padding: 0.3rem;
+}
+
+span {
+  color: #f87171;
+}
+
+button {
+  width: 10rem;
+  border-radius: 1rem;
+  border: 1px solid gray;
+  padding: 0.2rem;
+  margin-top: 1rem;
+  font-size: medium;
 }
