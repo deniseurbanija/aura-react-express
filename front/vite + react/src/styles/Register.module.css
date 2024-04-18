@@ -1,5 +1,5 @@
 .form_container {
-  padding: 4rem;
+  padding: 2rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -10,10 +10,6 @@
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-}
-
-h2 {
-  margin-top: 3rem;
 }
 
 .loginForm {
@@ -31,7 +27,8 @@ input {
 }
 
 span {
-  color: #f87171;
+  margin: 2rem;
+
 }
 
 button {
@@ -39,6 +36,6 @@ button {
   border-radius: 1rem;
   border: 1px solid gray;
   padding: 0.2rem;
-  margin-top: 1rem;
+ 
   font-size: medium;
 }

@@ -5,12 +5,16 @@
   border: 1px solid rgba(201, 201, 201, 0.582);
   align-items: center;
   background-color: #fff;
-  position: fixed;
+}
+
+.image {
+  margin-top: 2px;
+  width: 10rem;
 }
 
 .title {
-  width: 60%;
-  margin-left: 4rem;
+  width: 55%;
+  margin-left: 6rem;
   text-align: start;
 }
 
