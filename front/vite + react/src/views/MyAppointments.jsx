@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import styles from "../styles/Card.module.css";
 import axios from "axios";
 import CancelationModal from "../components/CancelationModal";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserAppointments } from "../redux/reducer";
-import AddAppointment from "../components/AddAppointment";
 import { Link } from "react-router-dom";
 
 const MyAppointments = () => {
@@ -25,31 +23,31 @@ const MyAppointments = () => {
     setModal(false);
   };
 
-  // useEffect(() => {
-  //   !user.name && navigate("/");
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `http://localhost:3000/users/${user.id}`
-      );
-      dispatch(setUserAppointments(response.data.appointments));
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/users/${user.id}`
+        );
+        dispatch(setUserAppointments(response.data.appointments));
+      } catch (err) {
+        alert("error");
+      }
     };
     user.name && fetchData();
   }, []);
 
   return (
     <div className={styles.card_container}>
-      {!appointments.length &&
-        (<span>No appointments yet</span>)}
-      {appointments.map((appointment) => (
-        <Card
-          appointment={appointment}
-          key={appointment.id}
-          handleOnClick={handleOnClick}
-        />
-      ))}
+      {!appointments.length && <span>No appointments yet</span>}
+      {appointments &&
+        appointments.map((appointment) => (
+          <Card
+            appointment={appointment}
+            key={appointment.id}
+            handleOnClick={handleOnClick}
+          />
+        ))}
       {modal && (
         <CancelationModal
           handleOnClose={handleOnClose}
@@ -57,7 +55,9 @@ const MyAppointments = () => {
           // setAppointments={setUserAppointments}
         />
       )}
-      <Link to="/add"><button>Add Appointment</button></Link>
+      <Link to="/add">
+        <button>Add Appointment</button>
+      </Link>
     </div>
   );
 };

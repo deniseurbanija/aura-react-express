@@ -15,7 +15,10 @@ export const userSlice = createSlice({
     setUserAppointments: (state, action) => {
       state.userAppointments = action.payload;
     },
+    addUserAppointment: (state, action) => {
+      state.userAppointments.push(action.payload);
+    },
   },
 });
 
-export const { setUserActive, setUserAppointments } = userSlice.actions;
+export const { setUserActive, setUserAppointments, addUserAppointment } = userSlice.actions;

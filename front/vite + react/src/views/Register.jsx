@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Register.module.css";
 import validate from "../utils/validate";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const initialState = {
@@ -19,7 +20,11 @@ const Register = () => {
   const postData = async () => {
     try {
       await axios.post("http://localhost:3000/users/register", registerForm);
-      alert("user registered succesfully");
+      Swal.fire({
+        title: "Usuario registrado!",
+        text: "You clicked the button!",
+        icon: "success",
+      });
     } catch (error) {
       alert(error, "user register failed");
     }
@@ -32,26 +37,28 @@ const Register = () => {
       ...registerForm,
       [name]: value,
     });
-
-    setErrors(validate(registerForm));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postData();
-    setRegisterForm(initialState);
+    if (validate(registerForm)) {
+      postData();
+      setRegisterForm(initialState);
+    } else {
+      alert("Parece que algun dato es incorrecto");
+    }
   };
 
   return (
     <form className={styles.form_container} onSubmit={handleSubmit}>
-      <h2>Register</h2>
+      <h2>Registrarme</h2>
       {[
-        { label: "Name", name: "name", type: "text" },
+        { label: "Nombre", name: "name", type: "text" },
         { label: "DNI", name: "nDni", type: "text" },
-        { label: "Birthdate", name: "birthdate", type: "date" },
+        { label: "Fecha de nacimiento", name: "birthdate", type: "date" },
         { label: "Email", name: "email", type: "text" },
-        { label: "Username", name: "username", type: "text" },
-        { label: "Password", name: "password", type: "password" },
+        { label: "Nombre de usuario", name: "username", type: "text" },
+        { label: "Contraseña", name: "password", type: "password" },
       ].map(({ label, name, type }) => {
         return (
           <div key={name} className={styles.registerForm}>
@@ -66,7 +73,7 @@ const Register = () => {
           </div>
         );
       })}
-      <button>Submit</button>
+      <button>Registrarme</button>
     </form>
   );
 };

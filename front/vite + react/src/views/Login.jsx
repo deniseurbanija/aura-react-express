@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Register.module.css";
+import styles from "../styles/Login.module.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -46,39 +46,41 @@ const Login = () => {
   };
 
   return (
-    <form className={styles.form_container} onSubmit={handleSubmit}>
-      <h2>Log In</h2>
-      <div className={styles.loginForm}>
-        <label>Username</label>
-        <input
-          name="username"
-          type="text"
-          value={loginForm.username}
-          onChange={handleOnChange}
-        ></input>
+    <div>
+      <h2 className={styles.text}>Iniciar sesión</h2>
+      <form className={styles.form_container} onSubmit={handleSubmit}>
+        <div className={styles.loginForm}>
+          <label>Nombre de usuario</label>
+          <input
+            name="username"
+            type="text"
+            value={loginForm.username}
+            onChange={handleOnChange}
+          ></input>
 
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          value={loginForm.password}
-          onChange={handleOnChange}
-        ></input>
-      </div>
+          <label>Contraseña</label>
+          <input
+            name="password"
+            type="password"
+            value={loginForm.password}
+            onChange={handleOnChange}
+          ></input>
+        </div>
 
-      <button
-        disabled={
-          (!loginForm.username && !loginForm.password) ||
-          !loginForm.password ||
-          !loginForm.username
-        }
-      >
-        Submit
-      </button>
-      <span>
-        No tienes una cuenta aún? <a href="/register">Registrarme</a>
-      </span>
-    </form>
+        <button
+          disabled={
+            (!loginForm.username && !loginForm.password) ||
+            !loginForm.password ||
+            !loginForm.username
+          }
+        >
+          Ingresar
+        </button>
+        <span>
+          No tienes una cuenta aún? <a href="/register">Registrarme</a>
+        </span>
+      </form>
+    </div>
   );
 };
 

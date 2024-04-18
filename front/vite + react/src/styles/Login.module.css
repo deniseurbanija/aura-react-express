@@ -5,9 +5,13 @@
   align-items: center;
 }
 
-.registerForm {
+.loginForm {
   display: flex;
   flex-direction: column;
+}
+
+.text {
+  font-size: 30px;
 }
 
 label {
@@ -22,15 +26,7 @@ input {
   padding: 0.3rem;
 }
 
-span {
-  margin: 1rem;
-}
-
 button {
-  width: 10rem;
-  border-radius: 1rem;
+  margin-top: 1rem;
   border: 1px solid rgba(128, 128, 128, 0.491);
-  padding: 0.2rem;
-  margin: 2rem;
-  font-size: medium;
 }
