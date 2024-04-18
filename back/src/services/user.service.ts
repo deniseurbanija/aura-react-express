@@ -13,8 +13,9 @@ export const getUsersService = async () => {
 };
 
 export const getUserByIdService = async (id: number) => {
-  const user: User | null = await UserModel.findOneBy({
-    id: id,
+  const user: User | null = await UserModel.findOne({
+    where: { id },
+    relations: { appointments: true },
   });
   if (!user) {
     throw new Error("User not found");
