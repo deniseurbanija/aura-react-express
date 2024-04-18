@@ -105,7 +105,7 @@ const AddAppointment = () => {
             !form.time
           }
         >
-          Add
+          Agregar
         </button>
       </form>
     </div>

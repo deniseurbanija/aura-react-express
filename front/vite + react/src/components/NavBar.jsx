@@ -15,17 +15,17 @@ const NavBar = () => {
       <div className={styles.ul_div}>
         <ul className={styles.ul}>
           <Link to="/home" className={styles.li}>
-            Home
+            Inicio
           </Link>
           <Link to="/contact" className={styles.li}>
-            Contact
+            Contacto
           </Link>
           <Link className={styles.li} to="/about">
-            About
+            Acerca
           </Link>
           {user.name ? (
             <Link to="/appointments" className={styles.li}>
-              My Appointments
+              Mis Turnos
             </Link>
           ) : (
             <Link to="/" className={styles.li}>

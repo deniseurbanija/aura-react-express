@@ -56,7 +56,7 @@ const MyAppointments = () => {
         />
       )}
       <Link to="/add">
-        <button>Add Appointment</button>
+        <button>Agregar</button>
       </Link>
     </div>
   );
