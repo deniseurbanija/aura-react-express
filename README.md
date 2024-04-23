@@ -10,7 +10,7 @@
 </p>
 
 ## About
-Neumáticos Norte - Appointment Booking System is a web application developed with React for the frontend and Node.js, Express.js, and PostgreSQL for the backend. It allows users to create and cancel appointments, as well as register and log in.
+Neumáticos Norte - Appointment Booking System is a web application developed with React for the frontend and Node.js, Express.js, and PostgreSQL for the backend using Typescript. It allows users to create and cancel appointments, as well as register and log in.
 
 ## Features
 - User registration and authentication
