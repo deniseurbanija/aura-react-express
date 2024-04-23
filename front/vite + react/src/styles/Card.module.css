@@ -1,6 +1,6 @@
 .card_container {
   justify-content: center;
-  padding-top: 5rem;
+  padding-top: 1rem;
   max-width: 80%;
   margin: 0 auto;
   display: flex;
@@ -34,11 +34,13 @@
   width: 5rem;
   padding: 0.5rem;
   border-radius: 8px;
+  font-weight: 300;
   background-color: #86ba90;
 }
 
 .cancelled {
   width: 5rem;
+  font-weight: 300;
   padding: 0.5rem;
   border-radius: 8px;
   background-color: #f87171;
