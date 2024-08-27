@@ -3,8 +3,10 @@ import styles from "../styles/Register.module.css";
 import validate from "../utils/validate";
 import axios from "axios";
 import Swal from "sweetalert2";
+import {useNavigate} from "react-router-dom"
 
 const Register = () => {
+  const navigate = useNavigate();
   const initialState = {
     name: "",
     nDni: "",
@@ -21,10 +23,10 @@ const Register = () => {
     try {
       await axios.post("http://localhost:3000/users/register", registerForm);
       Swal.fire({
-        title: "Usuario registrado!",
-        text: "You clicked the button!",
-        icon: "success",
+        title: "¡Usuario registrado!",
+        text: "El usuario se registró correctamente",
       });
+      navigate("/login")
     } catch (error) {
       alert(error, "user register failed");
     }

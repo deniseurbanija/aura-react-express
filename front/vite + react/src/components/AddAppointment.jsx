@@ -31,10 +31,11 @@ const AddAppointment = () => {
       console.log(response.data);
       dispatch(addUserAppointment(response.data));
       Swal.fire({
-        title: "Appointment Added!",
-        text: "You clicked the button!",
-        icon: "success",
-      });
+        title: '¡Turno reservado!',
+        text: 'El turno se reservó correctamente',
+        showConfirmButton: false,
+        timer: 2000
+    })
       navigate("/appointments");
     } catch (error) {
       alert("ERROR!!");
@@ -70,11 +71,13 @@ const AddAppointment = () => {
       <form onSubmit={handleOnSubmit} className={styles.form}>
         <label>Motivo</label>
         <select name="motive" value={form.motive} onChange={handleOnChange}>
-          <option>Cambio de cubiertas</option>
-          <option>Alineado</option>
-          <option>Balanceo</option>
-          <option>Cambio de aceite y filtro</option>
-          <option>Revisión de tren delantero</option>
+          <option>Masajes</option>
+          <option>Esmaltado semipermanente</option>
+          <option>Service de uñas</option>
+          <option>Lifting de pestañas</option>
+          <option>Maquillaje para evento</option>
+          <option>Manicura clásica y spa</option>
+          <option>Pedicura clásica y spa</option>
         </select>
 
         <label>Día</label>
@@ -84,6 +87,11 @@ const AddAppointment = () => {
           value={setForm.date}
           onChange={handleOnChange}
         ></input>
+          {showAlert && (
+          <span className="alert">
+            Por favor ingrese una fecha válidas.
+          </span>
+        )}
 
         <label>Hora</label>
         <input
@@ -94,7 +102,7 @@ const AddAppointment = () => {
         ></input>
         {showAlert && (
           <span className="alert">
-            Por favor ingrese una fecha y hora válidas.
+            Por favor ingrese una hora válidas.
           </span>
         )}
         <button
