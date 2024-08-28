@@ -9,7 +9,8 @@ const NavBar = () => {
     <div className={styles.navbar}>
       <div className={styles.title}>
         <Link to="/home" className={styles.li}>
-          <img src={logo} alt="Logo" className={styles.image} />
+          {/* <img src={logo} alt="Logo" className={styles.image} /> */}
+          <div>Estética Aura</div>
         </Link>
       </div>
       <div className={styles.ul_div}>

@@ -23,7 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/add" element={<AddAppointment />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
