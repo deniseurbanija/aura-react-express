@@ -45,10 +45,10 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="bg-green-700 h-screen flex flex-col items-center">
+      <div className=" bg-green-100 h-96 m-10 p-8 items-center rounded-md">
+        <h1>Iniciar sesión</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col">
           <label>Nombre de usuario</label>
           <input
             name="username"
@@ -64,21 +64,21 @@ const Login = () => {
             value={loginForm.password}
             onChange={handleOnChange}
           ></input>
-        </div>
 
-        <button
-          disabled={
-            (!loginForm.username && !loginForm.password) ||
-            !loginForm.password ||
-            !loginForm.username
-          }
-        >
-          Ingresar
-        </button>
-        <span>
-          No tienes una cuenta aún? <a href="/register">Registrarme</a>
-        </span>
-      </form>
+          <button
+            disabled={
+              (!loginForm.username && !loginForm.password) ||
+              !loginForm.password ||
+              !loginForm.username
+            }
+          >
+            Ingresar
+          </button>
+          <span>
+            No tienes una cuenta aún? <a href="/register">Registrarme</a>
+          </span>
+        </form>
+      </div>
     </div>
   );
 };
