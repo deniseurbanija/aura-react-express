@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "../styles/Login.module.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -47,9 +46,9 @@ const Login = () => {
 
   return (
     <div>
-      <h2 className={styles.text}>Iniciar sesión</h2>
-      <form className={styles.form_container} onSubmit={handleSubmit}>
-        <div className={styles.loginForm}>
+      <h2>Iniciar sesión</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
           <label>Nombre de usuario</label>
           <input
             name="username"

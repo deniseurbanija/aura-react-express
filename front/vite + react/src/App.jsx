@@ -1,4 +1,3 @@
-import "./App.css";
 import MyAppointments from "./views/MyAppointments";
 import NavBar from "../src/components/NavBar";
 import Footer from "./components/Footer";

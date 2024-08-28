@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import cubiertaImage from "../assets/BridgestonePics/cubierta.jpg";
 import motogp1 from "../assets/BridgestonePics/moto-gp1.jpg";
 import motogp2 from "../assets/BridgestonePics/moto-gp2.jpg";
-import "../styles/Carousel.css";
 
 const Carousel = () => {
   const [counter, setCounter] = useState(1);

@@ -1,8 +1,7 @@
-import styles from "../styles/Views.module.css";
 
 function About() {
   return (
-    <div className={styles.container}>
+    <div>
       <p>
         Somos neumaticos norte srl. una empresa familiar fundada hace 30 años
         con el objetivo de brindar servicio y productos de primera calidad para los vehiculos con

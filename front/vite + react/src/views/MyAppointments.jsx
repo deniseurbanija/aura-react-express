@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import styles from "../styles/Card.module.css";
 import axios from "axios";
 import CancelationModal from "../components/CancelationModal";
 import { useSelector, useDispatch } from "react-redux";
@@ -38,7 +37,7 @@ const MyAppointments = () => {
   }, []);
 
   return (
-    <div className={styles.card_container}>
+    <div>
       {!appointments.length && <span>No appointments yet</span>}
       {appointments &&
         appointments.map((appointment) => (

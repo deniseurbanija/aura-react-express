@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "../styles/Register.module.css";
 import validate from "../utils/validate";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -52,7 +51,7 @@ const Register = () => {
   };
 
   return (
-    <form className={styles.form_container} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h2>Registrarme</h2>
       {[
         { label: "Nombre", name: "name", type: "text" },
@@ -63,7 +62,7 @@ const Register = () => {
         { label: "Contraseña", name: "password", type: "password" },
       ].map(({ label, name, type }) => {
         return (
-          <div key={name} className={styles.registerForm}>
+          <div key={name} >
             <label>{label}</label>
             <input
               type={type}

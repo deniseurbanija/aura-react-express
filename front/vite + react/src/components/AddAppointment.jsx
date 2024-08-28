@@ -5,7 +5,6 @@ import { addUserAppointment } from "../redux/reducer";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import validateForm from "../utils/validateForm";
-import styles from "../styles/AddAppointment.module.css";
 
 const AddAppointment = () => {
   const dispatch = useDispatch();
@@ -66,9 +65,9 @@ const AddAppointment = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div >
       <p>Atención: de lunes a viernes. Horario de corrido de 9AM hasta 5PM</p>
-      <form onSubmit={handleOnSubmit} className={styles.form}>
+      <form onSubmit={handleOnSubmit} >
         <label>Motivo</label>
         <select name="motive" value={form.motive} onChange={handleOnChange}>
           <option>Masajes</option>

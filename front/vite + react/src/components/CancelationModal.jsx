@@ -1,4 +1,3 @@
-import styles from "../styles/Modal.module.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -19,18 +18,18 @@ const CancelationModal = ({ id, handleOnClose }) => {
   };
 
   return (
-    <div className={styles.modal_overlay}>
-      <div className={styles.modal}>
-        <div className={styles.advice}>
+    <div>
+      <div>
+        <div>
           <span>¿Estas seguro que quieres cancelar este turno?</span>
         </div>
         <button
-          className={styles.yellow_btn}
+        
           onClick={() => cancelAppointment(id)}
         >
           Cancelar turno
         </button>
-        <button className={styles.btnActive} onClick={() => handleOnClose()}>
+        <button  onClick={() => handleOnClose()}>
           X
         </button>
       </div>

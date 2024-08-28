@@ -1,4 +1,3 @@
-import styles from "../styles/NavBar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useSelector } from "react-redux";
@@ -6,30 +5,30 @@ import { useSelector } from "react-redux";
 const NavBar = () => {
   const user = useSelector((state) => state.userActive);
   return (
-    <div className={styles.navbar}>
-      <div className={styles.title}>
-        <Link to="/home" className={styles.li}>
+    <div>
+      <div>
+        <Link to="/home" >
           {/* <img src={logo} alt="Logo" className={styles.image} /> */}
           <div>Estética Aura</div>
         </Link>
       </div>
-      <div className={styles.ul_div}>
-        <ul className={styles.ul}>
-          <Link to="/home" className={styles.li}>
+      <div>
+        <ul >
+          <Link to="/home" >
             Inicio
           </Link>
-          <Link to="/contact" className={styles.li}>
+          <Link to="/contact" >
             Contacto
           </Link>
-          <Link className={styles.li} to="/about">
+          <Link  to="/about">
             Acerca
           </Link>
           {user.name ? (
-            <Link to="/appointments" className={styles.li}>
+            <Link to="/appointments" >
               Mis Turnos
             </Link>
           ) : (
-            <Link to="/" className={styles.li}>
+            <Link to="/" >
               Login
             </Link>
           )}
