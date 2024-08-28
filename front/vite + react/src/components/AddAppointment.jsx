@@ -30,7 +30,7 @@ const AddAppointment = () => {
       console.log(response.data);
       dispatch(addUserAppointment(response.data));
       Swal.fire({
-        title: '¡Turno reservado!',
+        title: '¡Turno reservado00000!',
         text: 'El turno se reservó correctamente',
         showConfirmButton: false,
         timer: 2000
