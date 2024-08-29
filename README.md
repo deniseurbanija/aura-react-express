@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Neumáticos Norte - Appointment Booking System 🚗</h1>
+  <h1>Estetica Aura - Appointment Booking System 🌸</h1>
 </div>
 
 <p align="center">
