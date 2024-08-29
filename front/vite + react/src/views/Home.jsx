@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <div>
-      <section className="h-600px bg-green-700 flex flex-col">
+      <section id="inicio" className="h-600px bg-green-700 flex flex-col">
         <div className="p-12 w-550px mt-20">
           <h1 className="text-5xl mb-3">
             Descubre la belleza que mereces en Aura

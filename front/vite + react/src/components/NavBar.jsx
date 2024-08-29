@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { MenuOutline } from "react-ionicons";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const user = useSelector((state) => state.userActive);
@@ -13,7 +14,7 @@ const NavBar = () => {
   return (
     <nav className="p-3 flex justify-between items-center w-[92%] mx-auto">
       <div>
-        <h1 className="text-lg text-red-400">Estética Aura</h1>
+        <h1 className="text-lg text-red-400" >Estética Aura</h1>
       </div>
       <div
         className={`nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 ${
@@ -25,22 +26,22 @@ const NavBar = () => {
           id="menu"
         >
           <li>
-            <a href="#inicio" className="hover:text-gray-500">
+            <a href="home" className="hover:text-gray-500">
               Inicio
             </a>
           </li>
           <li>
-            <a href="#contacto" className="hover:text-gray-500">
+            <a href="home#contacto" className="hover:text-gray-500">
               Contacto
             </a>
           </li>
           <li>
-            <a href="#acerca" className="hover:text-gray-500">
+            <a href="home#acerca" className="hover:text-gray-500">
               Acerca
             </a>
           </li>
           <li>
-            <a href="#servicios" className="hover:text-gray-500">
+            <a href="home#servicios" className="hover:text-gray-500">
               Servicios
             </a>
           </li>
@@ -48,14 +49,19 @@ const NavBar = () => {
       </div>
       <div className="flex items-center gap-6">
         {user.name ? (
-          <button to="/appointments">Mis Turnos</button>
+          <Link
+            className=" bg-red-400 text-white px-5 py-2 rounded-full hover:bg-red-500"
+            to="/appointments"
+          >
+            Mis Turnos
+          </Link>
         ) : (
-          <button
+          <Link
             className=" bg-red-400 text-white px-5 py-2 rounded-full hover:bg-red-500"
             to="/"
           >
             Login
-          </button>
+          </Link>
         )}
         <MenuOutline
           className="block md:hidden cursor-pointer" // md:hidden oculta el icono en pantallas medianas y grandes
