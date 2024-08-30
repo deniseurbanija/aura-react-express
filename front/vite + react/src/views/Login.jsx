@@ -88,7 +88,7 @@ const Login = () => {
               >
                 Sign in
               </button>
-              {/* <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2 rounded-xl text-gray-700 font-semibold text-md border-2 border-gray-100 ">
+              <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2 rounded-xl text-gray-700 font-semibold text-md border-2 border-gray-100 ">
                 <svg
                   width="24"
                   height="24"
@@ -114,7 +114,7 @@ const Login = () => {
                   />
                 </svg>
                 Sign in with Google
-              </button> */}
+              </button>
             </div>
             <div className="mt-8 flex gap-2 justify-between">
               <a className="font-semibold">Forgot your password?</a>
