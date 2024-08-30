@@ -14,7 +14,7 @@ const NavBar = () => {
   return (
     <nav className="p-3 flex justify-between items-center w-[92%] mx-auto font-semibold">
       <div>
-        <h1 className="text-lg text-green-600">Estética Aura</h1>
+        <h1 className="text-lg text-greeny">Estética Aura</h1>
       </div>
       <div
         className={`nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 ${
@@ -31,17 +31,17 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="home#acerca" className="hover:text-gray-500">
+            <a href="home#about" className="hover:text-gray-500">
               About
             </a>
           </li>
           <li>
-            <a href="home#servicios" className="hover:text-gray-500">
+            <a href="home#services" className="hover:text-gray-500">
               Services
             </a>
           </li>
           <li>
-            <a href="home#contacto" className="hover:text-gray-500">
+            <a href="home#contact" className="hover:text-gray-500">
               Contact
             </a>
           </li>
@@ -50,14 +50,14 @@ const NavBar = () => {
       <div className="flex items-center gap-6">
         {user.name ? (
           <Link
-            className=" bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700"
+            className=" bg-greeny text-white px-5 py-2 rounded-full hover:bg-green-700"
             to="/appointments"
           >
             Appointments
           </Link>
         ) : (
           <Link
-            className=" bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700"
+            className=" bg-greeny text-white px-5 py-2 rounded-full hover:bg-green-700"
             to="/"
           >
             Login

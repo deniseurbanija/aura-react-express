@@ -84,7 +84,7 @@ const Login = () => {
                   !loginForm.password ||
                   !loginForm.username
                 }
-                className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-3 bg-green-600 text-white font-bold text-md rounded-xl"
+                className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-3 bg-greeny text-white font-bold text-md rounded-xl"
               >
                 Sign in
               </button>
@@ -118,7 +118,7 @@ const Login = () => {
             </div>
             <div className="mt-8 flex gap-2 justify-between">
               <a className="font-semibold">Forgot your password?</a>
-              <a href="/register" className="text-green-600 font-semibold">
+              <a href="/register" className="text-greeny font-semibold">
                 Create Account
               </a>
             </div>

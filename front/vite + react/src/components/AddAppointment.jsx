@@ -30,11 +30,11 @@ const AddAppointment = () => {
       console.log(response.data);
       dispatch(addUserAppointment(response.data));
       Swal.fire({
-        title: '¡Turno reservado!',
-        text: 'El turno se reservó correctamente',
+        title: "¡Turno reservado!",
+        text: "El turno se reservó correctamente",
         showConfirmButton: false,
-        timer: 2000
-    })
+        timer: 2000,
+      });
       navigate("/appointments");
     } catch (error) {
       alert("ERROR!!");
@@ -65,52 +65,65 @@ const AddAppointment = () => {
   };
 
   return (
-    <div >
-      <p>Atención: de lunes a viernes. Horario de corrido de 9AM hasta 5PM</p>
-      <form onSubmit={handleOnSubmit} >
-        <label>Motivo</label>
-        <select name="motive" value={form.motive} onChange={handleOnChange}>
-          <option>Masajes</option>
-          <option>Esmaltado semipermanente</option>
-          <option>Service de uñas</option>
-          <option>Lifting de pestañas</option>
-          <option>Maquillaje para evento</option>
-          <option>Manicura clásica y spa</option>
-          <option>Pedicura clásica y spa</option>
-        </select>
+    <div className="p-6 bg-white rounded-3xl border-2 border-gray-100 max-w-md mx-auto my-8">
+      <p className="text-gray-700 mb-4">
+        Atención: de lunes a viernes. Horario de corrido de 9AM hasta 5PM
+      </p>
+      <form onSubmit={handleOnSubmit} className="space-y-4">
+        <div className="flex flex-col">
+          <label className="text-lg font-medium mb-2">Motivo</label>
+          <select
+            name="motive"
+            value={form.motive}
+            onChange={handleOnChange}
+            className="border-2 border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            <option>Masajes</option>
+            <option>Esmaltado semipermanente</option>
+            <option>Servicio de uñas</option>
+            <option>Lifting de pestañas</option>
+            <option>Maquillaje para evento</option>
+            <option>Manicura clásica y spa</option>
+            <option>Pedicura clásica y spa</option>
+          </select>
+        </div>
 
-        <label>Día</label>
-        <input
-          type="date"
-          name="date"
-          value={setForm.date}
-          onChange={handleOnChange}
-        ></input>
+        <div className="flex flex-col">
+          <label className="text-lg font-medium mb-2">Día</label>
+          <input
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={handleOnChange}
+            className="border-2 border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
           {showAlert && (
-          <span className="alert">
-            Por favor ingrese una fecha válidas.
-          </span>
-        )}
+            <span className="text-red-500 mt-1 text-sm">
+              Por favor ingrese una fecha válida.
+            </span>
+          )}
+        </div>
 
-        <label>Hora</label>
-        <input
-          type="time"
-          name="time"
-          value={setForm.time}
-          onChange={handleOnChange}
-        ></input>
-        {showAlert && (
-          <span className="alert">
-            Por favor ingrese una hora válidas.
-          </span>
-        )}
+        <div className="flex flex-col">
+          <label className="text-lg font-medium mb-2">Hora</label>
+          <input
+            type="time"
+            name="time"
+            value={form.time}
+            onChange={handleOnChange}
+            className="border-2 border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          {showAlert && (
+            <span className="text-red-500 mt-1 text-sm">
+              Por favor ingrese una hora válida.
+            </span>
+          )}
+        </div>
+
         <button
-          disabled={
-            (!form.motive && !form.date && !form.time) ||
-            !form.motive ||
-            !form.date ||
-            !form.time
-          }
+          type="submit"
+          disabled={!form.motive || !form.date || !form.time}
+          className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50"
         >
           Agregar
         </button>

@@ -37,7 +37,8 @@ const MyAppointments = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col items-center p-5 mt-5">
+      <h1 className="text-2xl m-5">My Appointments</h1>
       {!appointments.length && <span>No appointments yet</span>}
       {appointments &&
         appointments.map((appointment) => (
@@ -55,7 +56,9 @@ const MyAppointments = () => {
         />
       )}
       <Link to="/add">
-        <button>Agregar</button>
+        <button className="p-3 rounded-3xl bg-lime-600 text-white font-semibold m-4">
+          Add appointment
+        </button>
       </Link>
     </div>
   );

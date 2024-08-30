@@ -9,6 +9,13 @@ export default {
       height: {
         "600px": "600px",
       },
+      colors: {
+        pinky: "#ED6A5A",
+        greeny: "#548C2F",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],
