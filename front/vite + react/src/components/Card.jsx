@@ -5,14 +5,22 @@ const Card = ({ appointment, handleOnClick }) => {
       <h4 className="w-2/12 text-center">{motive}</h4>
       <p className="w-3/12 text-center">{date}</p>
       <p className="w-2/12 text-center">{time}</p>
-      <p className="w-2/12 text-center">{status}</p>
-      {status == "active" && (
-        <button
-          onClick={() => handleOnClick(id)}
-          className="w-1/12 text-center"
-        >
-          X
-        </button>
+      {status === "active" ? (
+        <>
+          <p className="text-active px-4 py-2 rounded-lg w-2/12 text-center">
+            {status}
+          </p>
+          <button className="" onClick={() => handleOnClick(id)}>
+            X
+          </button>
+        </>
+      ) : (
+        <>
+          <p className="text-red-600 px-4 py-2 rounded-lg w-2/12 text-center">
+            {status}
+          </p>
+          <button className="invisible">X</button>
+        </>
       )}
     </div>
   );

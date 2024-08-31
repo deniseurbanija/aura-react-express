@@ -12,9 +12,11 @@ export default {
       colors: {
         pinky: "#ED6A5A",
         greeny: "#548C2F",
+        active: "#86ba90",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        title: ["Cinzel Decorative", "serif"],
       },
     },
   },

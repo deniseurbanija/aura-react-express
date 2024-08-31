@@ -14,7 +14,7 @@ const NavBar = () => {
   return (
     <nav className="p-3 flex justify-between items-center w-[92%] mx-auto font-semibold">
       <div>
-        <h1 className="text-lg text-greeny">Estética Aura</h1>
+        <h1 className="text-4xl text-greeny font-title ml-3">Aura</h1>
       </div>
       <div
         className={`nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 ${

@@ -10,7 +10,8 @@ const Home = () => {
           <div className="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-50">
             <div className="text-white p-6 sm:p-8 md:p-12 w-full max-w-lg">
               <h1 className="text-3xl sm:text-4xl md:text-5xl mb-3">
-                Discover the beauty you deserve at Aura
+                Discover the beauty you deserve at{" "}
+                <span className="font-title">Aura</span>
               </h1>
               <p className="text-sm sm:text-base md:text-lg">
                 At Aura, we offer a variety of aesthetic services designed to
@@ -26,7 +27,8 @@ const Home = () => {
       <section className="my-10 text-center">
         <div className="p-12">
           <h1 className="text-5xl mb-3">
-            Welcome to <span className="text-greeny font-bold">Aura</span>
+            Welcome to{" "}
+            <span className="text-greeny font-bold font-title">Aura</span>
           </h1>
           <p>
             At Aura, we enhance your beauty with personalized services and a
@@ -47,7 +49,7 @@ const Home = () => {
               description="Each treatment is performed with attention to detail and professionalism."
             />
             <ServiceCard
-              image="https://m.media-amazon.com/images/I/61CMT9XpSsL._SL1200_.jpg"
+              image="https://i.pinimg.com/564x/0f/6e/c8/0f6ec8fb8adcfd6600830934f2922aea.jpg"
               title="Nails"
               description="Each treatment is performed with attention to detail and professionalism."
             />

@@ -128,7 +128,10 @@ const Login = () => {
       <div className="hidden relative w-1/2 h-screen lg:flex items-center justify-center bg-gray-200">
         {/* <div className="w-60 h-60 rounded-full bg-gradient-to-tr from-green-500 to-red-400 animate-bounce" />
         <div className="w-full h-1/2 absolute bottom-0 bg-white/10 backdrop-blur-md" /> */}
-        <img src={twoGirls}></img>
+        <img
+          src="https://i.pinimg.com/564x/4d/1a/01/4d1a01b865a9f59a0290c73a43c7d2ea.jpg"
+          className="w-full h-screen object-cover"
+        ></img>
       </div>
     </div>
   );
