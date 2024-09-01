@@ -4,7 +4,11 @@ const validateForm = (form) => {
   const currentDate = new Date();
 
   // Validar si la fecha y la hora están presentes
-  if (!date || !time) {
+  if (!date) {
+    isValidD = false;
+  }
+
+  if (!time) {
     isValid = false;
   }
 
@@ -14,14 +18,14 @@ const validateForm = (form) => {
   const selectedTime = new Date(`01/01/2000 ${time}`); // Solo nos importa la hora
 
   // Validar si el día es lunes, martes, miércoles, jueves o viernes
-  if (selectedDay < 1 || selectedDay > 5) {
+  if (selectedDay < 0 || selectedDay > 4) {
     isValid = false;
   }
 
   // Validar si la hora está entre las 9AM y las 5PM
   const startTime = new Date(`01/01/2000 09:00 AM`);
   const endTime = new Date(`01/01/2000 05:00 PM`);
-  
+
   if (selectedTime < startTime || selectedTime > endTime) {
     isValid = false;
   }
@@ -35,4 +39,3 @@ const validateForm = (form) => {
 };
 
 export default validateForm;
-

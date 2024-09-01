@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUserAppointment } from "../redux/reducer";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import validateForm from "../utils/validateForm";
+import validateForm from "../utils/validateDateForm";
 
 const AddAppointment = () => {
   const dispatch = useDispatch();
@@ -67,29 +67,29 @@ const AddAppointment = () => {
   return (
     <div className="p-6 bg-white rounded-3xl border-2 border-gray-100 max-w-md mx-auto my-8">
       <p className="text-gray-700 mb-4">
-        Atención: de lunes a viernes. Horario de corrido de 9AM hasta 5PM
+        Reminder: Our customer service hours are from Monday to Friday, 9 AM to
+        5 PM.
       </p>
       <form onSubmit={handleOnSubmit} className="space-y-4">
         <div className="flex flex-col">
-          <label className="text-lg font-medium mb-2">Motivo</label>
+          <label className="text-lg font-medium mb-2">Motive</label>
           <select
             name="motive"
             value={form.motive}
             onChange={handleOnChange}
             className="border-2 border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
           >
-            <option>Masajes</option>
-            <option>Esmaltado semipermanente</option>
-            <option>Servicio de uñas</option>
-            <option>Lifting de pestañas</option>
-            <option>Maquillaje para evento</option>
-            <option>Manicura clásica y spa</option>
-            <option>Pedicura clásica y spa</option>
+            <option>Massages</option>
+            <option>Permanent nail polish</option>
+            <option>Eyelash lifting</option>
+            <option>Event makeup</option>
+            <option>Classic manicure and spa</option>
+            <option>Classic pedicure and spa</option>
           </select>
         </div>
 
         <div className="flex flex-col">
-          <label className="text-lg font-medium mb-2">Día</label>
+          <label className="text-lg font-medium mb-2">Date</label>
           <input
             type="date"
             name="date"
@@ -99,13 +99,13 @@ const AddAppointment = () => {
           />
           {showAlert && (
             <span className="text-red-500 mt-1 text-sm">
-              Por favor ingrese una fecha válida.
+              Please, enter a valid date.
             </span>
           )}
         </div>
 
         <div className="flex flex-col">
-          <label className="text-lg font-medium mb-2">Hora</label>
+          <label className="text-lg font-medium mb-2">Time</label>
           <input
             type="time"
             name="time"
@@ -115,7 +115,7 @@ const AddAppointment = () => {
           />
           {showAlert && (
             <span className="text-red-500 mt-1 text-sm">
-              Por favor ingrese una hora válida.
+              Please, enter a valid time
             </span>
           )}
         </div>
