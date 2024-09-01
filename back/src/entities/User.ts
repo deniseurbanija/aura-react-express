@@ -28,6 +28,9 @@ export class User {
   @Column()
   nDni: number;
 
+  @Column({ nullable: true })
+  avatar: string;
+
   @OneToOne(() => Credential)
   @JoinColumn({ name: "credentialId" })
   credential: Credential;

@@ -23,6 +23,17 @@ export const getUserByIdService = async (id: number) => {
   return user;
 };
 
+export const getUserByEmail = async (email: string) => {
+  const user: User | null = await UserModel.findOne({
+    where: { email: email },
+    relations: { appointments: true },
+  });
+  if (!user) {
+    throw new Error("User not found");
+  }
+  return user;
+};
+
 export const addUserService = async (userData: userDto): Promise<User> => {
   const newCredential: Credential = await createCredential(
     userData.email,

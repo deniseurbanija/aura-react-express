@@ -24,16 +24,56 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="my-10 text-center">
+      <section className="mt-10 text-center">
         <div className="p-12">
           <h1 className="text-5xl mb-3">
             Welcome to{" "}
             <span className="text-greeny font-bold font-title">Aura</span>
           </h1>
-          <p>
+          <p className="text-xl">
             At Aura, we enhance your beauty with personalized services and a
             focus on your well-being.
           </p>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        className="text-center h-auto px-6 py-12 bg-gray-100 text-greeny flex flex-col lg:flex-row items-center justify-between"
+      >
+        <div className="w-full lg:w-1/2 px-4 lg:px-8 mb-8 lg:mb-0">
+          <h2 className="text-3xl font-bold mb-4">About Us</h2>
+          <p className="mb-4 text-lg leading-relaxed">
+            At Aura, we believe that beauty is not just about appearance but an
+            experience that rejuvenates the soul. Our team of dedicated
+            professionals is committed to providing you with top-tier beauty
+            services in a relaxing and luxurious environment.
+          </p>
+          <p className="mb-4 text-lg leading-relaxed">
+            Founded with a passion for transforming beauty routines, Aura
+            combines the latest trends with classic techniques to deliver
+            exceptional results. Whether you’re here for a revitalizing facial,
+            a glamorous makeover, or a meticulous manicure, our skilled
+            aestheticians and stylists use only the finest products to ensure
+            you leave feeling radiant and refreshed.
+          </p>
+          <p className="text-lg leading-relaxed">
+            Our mission is to create a haven where every visit feels like a
+            personal retreat. From the moment you step into our salon, you’ll be
+            greeted by a warm and inviting atmosphere designed to make you feel
+            at ease. At Aura, we’re more than just a beauty salon; we’re a
+            sanctuary for self-care and indulgence. Join us and discover why
+            Aura Beauty Salon is the premier destination for those who value
+            beauty, quality, and exceptional service. We look forward to
+            pampering you and helping you shine your brightest.
+          </p>
+        </div>
+        <div className="w-full lg:w-1/2">
+          <img
+            src="https://i.pinimg.com/564x/11/3e/dc/113edc44b752d588ca614c55d1012e84.jpg"
+            alt="Aura Beauty Salon"
+            className="w-full h-600px object-cover rounded-lg shadow-lg"
+          />
         </div>
       </section>
 
@@ -62,10 +102,10 @@ const Home = () => {
         </div>
       </section>
       <section
-        className="flex flex-wrap justify-center items-center my-20"
+        className="flex flex-wrap justify-center items-center mt-20"
         id="contact"
       >
-        <div className="flex flex-col p-6 sm:p-8 md:p-12 w-full h-96 items-center bg-greeny ">
+        <div className="flex flex-col p-6 sm:p-8 md:p-12 w-full h-96 items-center bg-greeny text-lightGreeny ">
           <h1 className="text-5xl text-white my-10">Contact</h1>
           <p>Facebook: Aura Beauty Salon</p>
           <p>Instagram: @aurabeauty</p>

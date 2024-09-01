@@ -15,6 +15,7 @@ function App() {
   const hideNavBarRoutes = ["/", "/register"];
 
   const shouldShowNavBar = !hideNavBarRoutes.includes(location.pathname);
+  const shouldShowFooter = !hideNavBarRoutes.includes(location.pathname);
 
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/add" element={<AddAppointment />} />
       </Routes>
+      {shouldShowFooter && <Footer />}
     </>
   );
 }

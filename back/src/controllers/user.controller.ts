@@ -3,8 +3,10 @@ import {
   addUserService,
   getUserByIdService,
   getUsersService,
+  getUserByEmail,
 } from "../services/user.service";
 import { validateCredentialService } from "../services/credential.service";
+import { verifyGoogleToken } from "../config/googleAuth";
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -43,5 +45,38 @@ export const login = async (req: Request, res: Response) => {
     res.status(200).send({ login: true, foundUser });
   } catch (error) {
     res.status(400).send("incorrect data");
+  }
+};
+
+export const googleAuth = async (req: Request, res: Response) => {
+  try {
+    const { token } = req.body;
+    const payload = await verifyGoogleToken(token);
+
+    if (!payload || !payload.email) {
+      return res
+        .status(401)
+        .json({ message: "Invalid Google token or email not provided" });
+    }
+
+    let user = await getUserByEmail(payload.email);
+
+    if (!user) {
+      user = await addUserService({
+        email: payload.email || "",
+        name: payload.name || "",
+        avatar: payload.picture || "",
+        username: "",
+        password: "",
+        birthdate: "",
+        nDni: 0
+      });
+    }
+
+    // Here you would generate a JWT token or session for the user
+    return res.status(200).json({ user });
+  } catch (error) {
+    console.error("Google authentication failed", error);
+    return res.status(500).json({ message: "Authentication failed" });
   }
 };

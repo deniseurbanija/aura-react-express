@@ -12,6 +12,7 @@ export default {
       colors: {
         pinky: "#ED6A5A",
         greeny: "#548C2F",
+        lightGreeny: "#a9fa73",
         active: "#86ba90",
       },
       fontFamily: {

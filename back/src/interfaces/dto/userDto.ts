@@ -7,4 +7,5 @@ export interface userDto {
   email: string;
   birthdate: string;
   nDni: number;
+  avatar: string;
 }
