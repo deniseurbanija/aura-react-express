@@ -37,8 +37,8 @@ export const addUser = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
   try {
-    const { username, password } = req.body;
-    const credentialId = await validateCredentialService(username, password);
+    const { email, password } = req.body;
+    const credentialId = await validateCredentialService(email, password);
     const foundUser = await getUserByIdService(credentialId);
     res.status(200).send({ login: true, foundUser });
   } catch (error) {

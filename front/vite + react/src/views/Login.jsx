@@ -1,17 +1,17 @@
-import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserActive } from "../redux/reducer";
-import twoGirls from "../assets/two-girls.jpg";
+import { useState, useEffect } from "react";
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
 
 const Login = () => {
   const dispatch = useDispatch();
   const initialState = {
-    username: "",
+    email: "",
     password: "",
   };
-
   const [loginForm, setLoginForm] = useState(initialState);
 
   const navigate = useNavigate();
@@ -31,6 +31,31 @@ const Login = () => {
     }
   };
 
+  const clientID =
+    "15350333841-av5htc00a08bmm0hat0r2qsra9g7vn94.apps.googleusercontent.com";
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientID,
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
+
+  const onSuccess = (response) => {
+    setLoginForm({
+      email: response.profileObj.email,
+      googleId: response.googleId,
+    });
+    console.log(loginForm);
+    document.getElementsByClassName("btn")[0].hidden = true; // Ensure you get the first element
+  };
+
+  const onFailure = (response) => {
+    console.log("Something went wrong");
+  };
+
   const handleOnChange = (event) => {
     const { name, value } = event.target;
 
@@ -42,6 +67,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     postData();
   };
 
@@ -57,9 +83,9 @@ const Login = () => {
             <div className="flex flex-col">
               <label>Email</label>
               <input
-                name="username"
-                type="text"
-                value={loginForm.username}
+                name="email"
+                type="email"
+                value={loginForm.email}
                 onChange={handleOnChange}
                 placeholder="Enter your email"
                 className="w-full border-2 border-gray-100 rounded-xl p-3 mt-1 bg-transparent"
@@ -80,15 +106,15 @@ const Login = () => {
             <div className="mt-8 flex flex-col gap-y-4">
               <button
                 disabled={
-                  (!loginForm.username && !loginForm.password) ||
+                  (!loginForm.email && !loginForm.password) ||
                   !loginForm.password ||
-                  !loginForm.username
+                  !loginForm.email
                 }
                 className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-3 bg-greeny text-white font-bold text-md rounded-xl"
               >
                 Sign in
               </button>
-              <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2 rounded-xl text-gray-700 font-semibold text-md border-2 border-gray-100 ">
+              {/* <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2 rounded-xl text-gray-700 font-semibold text-md border-2 border-gray-100 ">
                 <svg
                   width="24"
                   height="24"
@@ -114,7 +140,16 @@ const Login = () => {
                   />
                 </svg>
                 Sign in with Google
-              </button>
+              </button> */}
+              <div className="flex items-center justify-center">
+                <GoogleLogin
+                  clientId={clientID}
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  buttonText="Continue  with Google"
+                  cookiePolicy={"single_host_origin"}
+                />
+              </div>
             </div>
             <div className="mt-8 flex gap-2 justify-between">
               <a className="font-semibold">Forgot your password?</a>

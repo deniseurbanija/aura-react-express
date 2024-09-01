@@ -25,7 +25,7 @@ export const getUserByIdService = async (id: number) => {
 
 export const addUserService = async (userData: userDto): Promise<User> => {
   const newCredential: Credential = await createCredential(
-    userData.username,
+    userData.email,
     userData.password
   );
 
