@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Estetica Aura - Appointment Booking System 🌸</h1>
+  <h1>Aura - Appointment Booking System 🌸</h1>
 </div>
 
 <p align="center">
@@ -11,7 +11,7 @@
 </p>
 
 ## About
-Estética Aura - Appointment Booking System is a web application developed with React for the frontend and Node.js, Express.js, and PostgreSQL for the backend using Typescript. It allows users to create and cancel appointments, as well as register and log in.
+Aura - Appointment Booking System is a web application developed with React for the frontend and Node.js, Express.js, and PostgreSQL for the backend using Typescript. It allows users to create and cancel appointments, as well as register and log in.
 
 ## Features
 - User registration and authentication
