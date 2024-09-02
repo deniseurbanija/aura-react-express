@@ -24,9 +24,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="mt-10 text-center">
+      <section className="my-16 text-center">
         <div className="p-12">
-          <h1 className="text-5xl mb-3">
+          <h1 className="text-5xl my-3">
             Welcome to{" "}
             <span className="text-greeny font-bold font-title">Aura</span>
           </h1>
@@ -70,7 +70,7 @@ const Home = () => {
         </div>
         <div className="w-full lg:w-1/2">
           <img
-            src="https://i.pinimg.com/564x/11/3e/dc/113edc44b752d588ca614c55d1012e84.jpg"
+            src="https://i.pinimg.com/564x/2d/58/a9/2d58a9238864fc401b550970bb0797e8.jpg"
             alt="Aura Beauty Salon"
             className="w-full h-600px object-cover rounded-lg shadow-lg"
           />
@@ -78,7 +78,7 @@ const Home = () => {
       </section>
 
       <section
-        className="flex flex-wrap justify-center items-center w-full"
+        className="flex flex-wrap justify-center items-center w-full my-20"
         id="services"
       >
         <div className="text-center w-11/12 my-10">

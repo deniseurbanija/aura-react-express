@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between">
           {/* Company Info */}
-          <div className="mb-6 lg:mb-0">
+          <div className="mb-6 lg:mb-0 sm:w-1/2 w-full">
             <h4 className="text-lg font-semibold mb-4">Aura</h4>
             <p className="text-gray-400">
               we blend elegance with excellence to provide you with a premier
@@ -63,7 +63,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
-          <p>&copy; 2024 Your Company. All rights reserved.</p>
+          <p>&copy; 2024 Aura. All rights reserved.</p>
         </div>
       </div>
     </footer>
