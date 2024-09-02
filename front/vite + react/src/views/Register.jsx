@@ -2,7 +2,7 @@ import { useState } from "react";
 import validate from "../utils/validate";
 import axios from "axios";
 import Swal from "sweetalert2";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Register = () => {
         title: "¡Usuario registrado!",
         text: "El usuario se registró correctamente",
       });
-      navigate("/login")
+      navigate("/");
     } catch (error) {
       alert(error, "user register failed");
     }
@@ -51,31 +51,41 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Registrarme</h2>
-      {[
-        { label: "Nombre", name: "name", type: "text" },
-        { label: "DNI", name: "nDni", type: "text" },
-        { label: "Fecha de nacimiento", name: "birthdate", type: "date" },
-        { label: "Email", name: "email", type: "text" },
-        { label: "Nombre de usuario", name: "username", type: "text" },
-        { label: "Contraseña", name: "password", type: "password" },
-      ].map(({ label, name, type }) => {
-        return (
-          <div key={name} >
-            <label>{label}</label>
-            <input
-              type={type}
-              name={name}
-              onChange={handleOnChange}
-              value={registerForm[name]}
-            />
-            {errors[name] && <span key={name}>{errors[name]}</span>}
-          </div>
-        );
-      })}
-      <button>Registrarme</button>
-    </form>
+    <div className="bg-gradient-to-br from-greeny to-lightGreeny flex w-full h-auto items-center justify-center">
+      <div className="w-full max-w-md px-10 py-12 bg-white border-2 border-gray-100 rounded-3xl">
+        <h2 className="text-4xl font-semibold mb-4">Sign up</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {[
+            { label: "Name", name: "name", type: "text" },
+            { label: "Document", name: "nDni", type: "text" },
+            { label: "Bithdate", name: "birthdate", type: "date" },
+            { label: "Email", name: "email", type: "text" },
+            { label: "Username", name: "username", type: "text" },
+            { label: "Password", name: "password", type: "password" },
+          ].map(({ label, name, type }) => (
+            <div key={name} className="flex flex-col">
+              <label className="font-medium text-gray-700">{label}</label>
+              <input
+                type={type}
+                name={name}
+                onChange={handleOnChange}
+                value={registerForm[name]}
+                placeholder={`Enter your ${label.toLowerCase()}`}
+                className="w-full border-2 border-gray-100 rounded-xl p-3 mt-1 bg-transparent"
+              />
+              {errors[name] && (
+                <span className="text-red-500 text-sm mt-1">
+                  {errors[name]}
+                </span>
+              )}
+            </div>
+          ))}
+          <button className="w-full py-3 bg-greeny text-white font-bold text-md rounded-xl active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out transform">
+            Sign up
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 

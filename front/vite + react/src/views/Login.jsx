@@ -1,4 +1,5 @@
 import axios from "axios";
+import  twoGirls  from "../assets/two-girls.jpg";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserActive } from "../redux/reducer";
@@ -135,10 +136,7 @@ const Login = () => {
         </div>
       </div>
       <div className="hidden relative w-1/2 h-screen lg:flex items-center justify-center bg-gray-200">
-        <img
-          src="https://i.pinimg.com/564x/4d/1a/01/4d1a01b865a9f59a0290c73a43c7d2ea.jpg"
-          className="w-full h-screen object-cover"
-        ></img>
+        <img src={twoGirls} className="w-full h-screen object-cover"></img>
       </div>
     </div>
   );
