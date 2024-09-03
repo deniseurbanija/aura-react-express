@@ -30,8 +30,8 @@ const AddAppointment = () => {
       console.log(response.data);
       dispatch(addUserAppointment(response.data));
       Swal.fire({
-        title: "¡Turno reservado!",
-        text: "El turno se reservó correctamente",
+        title: "Appointment added 😀",
+        text: "Appointment added succesfully",
         showConfirmButton: false,
         timer: 2000,
       });
@@ -125,7 +125,7 @@ const AddAppointment = () => {
           disabled={!form.motive || !form.date || !form.time}
           className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50"
         >
-          Agregar
+          Add appointment
         </button>
       </form>
     </div>

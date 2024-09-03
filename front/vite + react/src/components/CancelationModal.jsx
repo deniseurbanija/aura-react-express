@@ -6,8 +6,8 @@ const CancelationModal = ({ id, handleOnClose }) => {
     try {
       await axios.put(`http://localhost:3000/appointments/cancel/${id}`);
       Swal.fire({
-        title: "¡Turno cancelado!",
-        text: "El turno se canceló correctamente",
+        title: "Appointment canceled",
+        text: "This appointment has been succesfully canceled",
         showConfirmButton: false,
         timer: 2000,
       });
